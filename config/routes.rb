@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callback => "users/omniauth_callbacks" }
+
 #   devise_scope :user do
 #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 # end
@@ -7,19 +7,22 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: "restaurants#index"
-
+  root  "restaurants#index"
+  devise_for :users, :controllers => { :omniauth_callback => "users/omniauth_callbacks" }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'restaurants' => 'restaurants#index'
+    resources :restaurants do
+      resources :reviews
+    end
+  
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :restaurants do
-    resources :reviews
-  end
+
 
   # Example resource route with options:
   #   resources :products do
