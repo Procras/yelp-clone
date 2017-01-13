@@ -2539,3 +2539,78 @@ Started GET "/users/auth/facebook" for ::1 at 2017-01-13 09:04:32 +0100
 
 
 Started GET "/users/auth/facebook" for ::1 at 2017-01-13 09:04:32 +0100
+
+
+Started GET "/" for ::1 at 2017-01-13 09:24:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.6ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (93.0ms)
+Completed 200 OK in 582ms (Views: 552.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/" for ::1 at 2017-01-13 09:24:35 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-01-13 09:24:39 +0100
+Processing by RestaurantsController#new as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-01-13 09:24:39 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (4.5ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 126ms (Views: 110.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-13 09:29:34 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 46ms (Views: 39.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2017-01-13 09:29:37 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-01-13 09:29:44 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 77ms (Views: 60.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-01-13 09:31:42 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z7cttGN25k7vZpJSI1UzpAgya5MTZAPXzPM31p2EED1H64Mp4v3VuJ4i37dDJWhTg3Yf7tbHoAvyVhRdHAwEOQ==", "user"=>{"email"=>"jfabrizi81@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (14.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "jfabrizi81@gmail.com"]]
+Completed 401 Unauthorized in 29ms (ActiveRecord: 14.8ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z7cttGN25k7vZpJSI1UzpAgya5MTZAPXzPM31p2EED1H64Mp4v3VuJ4i37dDJWhTg3Yf7tbHoAvyVhRdHAwEOQ==", "user"=>{"email"=>"jfabrizi81@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 206ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-01-13 09:31:50 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.0ms)
