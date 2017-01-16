@@ -10,13 +10,14 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-  @restaurant = Restaurant.new(restaurant_params)
-  if @restaurant.save
-    redirect_to restaurants_path
-  else
-    render 'new'
+    @restaurant = Restaurant.new(restaurant_params)
+    # @restaurant.user = current_user
+    if @restaurant.save
+      redirect_to restaurants_path
+    else
+      render 'new'
+    end
   end
-end
 
   def show
     @restaurant = Restaurant.find(params[:id])
