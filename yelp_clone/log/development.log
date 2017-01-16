@@ -2710,3 +2710,156 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started GET "/" for ::1 at 2017-01-16 16:31:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (4.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.4ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.6ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 533ms (Views: 491.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for ::1 at 2017-01-16 16:31:07 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  Rendered restaurants/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/restaurants/3" for ::1 at 2017-01-16 16:31:16 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRestaurant Load (0.4ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered restaurants/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-01-16 16:31:22 +0100
+Processing by RestaurantsController#new as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-01-16 16:31:22 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 61ms (Views: 49.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-01-16 16:31:26 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"00yR6eTwLAwPLmCFc5mgtPGxMHQXrZ8igxa5lNDLwi3zED90ZXsf+n5qLWAT6ftDevVECdIOPP69s5ofUUPWKQ==", "user"=>{"email"=>"gfabrizi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "gfabrizi@gmail.com"]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.5ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"00yR6eTwLAwPLmCFc5mgtPGxMHQXrZ8igxa5lNDLwi3zED90ZXsf+n5qLWAT6ftDevVECdIOPP69s5ofUUPWKQ==", "user"=>{"email"=>"gfabrizi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 204ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2017-01-16 16:31:34 +0100
+
+
+Started GET "/users/auth/facebook" for ::1 at 2017-01-16 16:31:34 +0100
+
+
+Started GET "/users/sign_in" for ::1 at 2017-01-16 16:31:37 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-01-16 16:31:39 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /Users/gfabrizi/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 71ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-01-16 16:31:51 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AbOl81CVSW+euXcNhG5mb6yeoGTY9gEHUuEl3BOaRCAh7wtu0R56me/9OujkHj2YJ9rUGR1VottsRAZXkhJQJA==", "user"=>{"email"=>"torrone@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'torrone@mail.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "torrone@mail.com"], ["encrypted_password", "$2a$11$WDJdvX8OWYaSqJ9BDjXAEekOAwzH3lQrQmehHSt01bCU4T//TVnWm"], ["created_at", "2017-01-16 15:31:51.711172"], ["updated_at", "2017-01-16 15:31:51.711172"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2017-01-16 15:31:51.716318"], ["current_sign_in_at", "2017-01-16 15:31:51.716318"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2017-01-16 15:31:51.717495"], ["id", 1]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants/new
+Completed 302 Found in 194ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2017-01-16 16:31:51 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered restaurants/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/restaurants" for ::1 at 2017-01-16 16:31:59 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3tw0y3iFJNe3h/LXoETQQ2m5EBsfbsQliMzdgXXFVmD+gJpW+Q4XIcbDvzLANIu04v1kZtrNZ/m2af4K9E1CZA==", "restaurant"=>{"name"=>"kfc", "description"=>"delicious"}, "commit"=>"Create Restaurant"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mRestaurant Exists (0.4ms)[0m  SELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = 'kfc' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "restaurants" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "kfc"], ["description", "delicious"], ["created_at", "2017-01-16 15:31:59.792727"], ["updated_at", "2017-01-16 15:31:59.792727"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 10ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-01-16 16:31:59 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  Rendered restaurants/index.html.erb within layouts/application (6.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/restaurants/4/reviews/new" for ::1 at 2017-01-16 16:32:03 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"restaurant_id"=>"4"}
+  [1m[36mRestaurant Load (2.6ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered reviews/new.html.erb within layouts/application (8.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 47ms (Views: 40.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/restaurants/4/reviews" for ::1 at 2017-01-16 16:32:14 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P1jVyLA/tfIec6zSqE1UtzIOUNDPWn7Oz9xlgXVQB1wfBHtVMbSGBG834TfIPQ9AuUokrQr53RLxeUYK9NgTWA==", "review"=>{"thoughts"=>"yummy and crispy", "rating"=>"3"}, "commit"=>"Leave Review", "restaurant_id"=>"4"}
+  [1m[36mRestaurant Load (0.3ms)[0m  [1mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mReview Exists (0.3ms)[0m  SELECT  1 AS one FROM "reviews" WHERE ("reviews"."user_id" = 1 AND "reviews"."restaurant_id" = 4) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "reviews" ("thoughts", "rating", "user_id", "restaurant_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["thoughts", "yummy and crispy"], ["rating", 3], ["user_id", 1], ["restaurant_id", 4], ["created_at", "2017-01-16 15:32:14.164940"], ["updated_at", "2017-01-16 15:32:14.164940"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 23ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/restaurants" for ::1 at 2017-01-16 16:32:14 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  Rendered restaurants/index.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 2.1ms)

@@ -1,4 +1,3 @@
-require 'rails_helper'
 
 feature 'restaurants' do
   context 'no restaurants have been added' do
@@ -22,12 +21,8 @@ feature 'restaurants' do
 
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
+      sign_up
       visit '/restaurants'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'test@email.com'
-      fill_in 'Password', with: 'secret'
-      fill_in 'Password confirmation', with: 'secret'
-      click_button 'Sign up'
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'KFC'
       fill_in 'Description', with: 'delicious'
@@ -37,14 +32,19 @@ feature 'restaurants' do
     end
   end
 
+    context 'not signed in' do
+      scenario 'cannot create a new restaurant' do
+        visit('/')
+        click_link('Add a restaurant')
+        expect(page).to have_content('You need to sign in or sign up before continuing.')
+        expect(page).not_to have_xpath '//*[@id="new_restaurant"]'
+      end
+    end
+
   context 'an invalid restaurant' do
     scenario 'does not let you submit a name that is too short' do
       visit '/restaurants'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'test@email.com'
-      fill_in 'Password', with: 'secret'
-      fill_in 'Password confirmation', with: 'secret'
-      click_button 'Sign up'
+      sign_up
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'kf'
       click_button 'Create Restaurant'
@@ -68,12 +68,8 @@ feature 'restaurants' do
   context 'updating restaurants' do
     before { Restaurant.create name: 'KFC', description: 'Deep fried goodness', id: 1 }
     scenario 'let a user edit a restaurant' do
+      sign_up
       visit '/restaurants'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'test@email.com'
-      fill_in 'Password', with: 'secret'
-      fill_in 'Password confirmation', with: 'secret'
-      click_button 'Sign up'
       click_link 'Edit KFC'
       fill_in 'Name', with: 'Kentucky Fried Chicken'
       fill_in 'Description', with: 'Deep Fried Goodness'
@@ -88,12 +84,8 @@ feature 'restaurants' do
   context 'deleting restaurants' do
     before { Restaurant.create name: 'KFC', description: 'Deep fried goodness', id: 1 }
     scenario 'removes a restaurant when a user clicks a delete link' do
-      visit '/restaurants'
-      click_link 'Sign up'
-      fill_in 'Email', with: 'test@email.com'
-      fill_in 'Password', with: 'secret'
-      fill_in 'Password confirmation', with: 'secret'
-      click_button 'Sign up'
+      sign_up
+      visit '/'
       click_link 'Delete KFC'
       expect(page).not_to have_content 'KFC'
       expect(page).to have_content 'Restaurant deleted successfully'
