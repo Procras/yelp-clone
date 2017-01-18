@@ -20,8 +20,21 @@ feature 'restaurants' do
   end
 
   context 'creating restaurants' do
+    before { sign_up }
+    scenario 'can upload an image and is correctly displayed with listing' do
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'Lighthouse'
+      fill_in 'Description', with: 'Some good sealfood at this place :)'
+      attach_file('restaurant_image', "#{Dir.pwd}/spec/features/test_images/lighthouse.jpg")
+      click_button 'Create Restaurant'
+      # expect(page).to have_xpath '//*[@id="lighthouse"]/span[1]/img'
+      # expect(page).to have_xpath("//img[contains(@src,'lighthouse.jpg')]")
+      expect(page).to have_css("img[src*='lighthouse.jpg']")
+
+
+    end
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
-      sign_up
       visit '/restaurants'
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'KFC'
