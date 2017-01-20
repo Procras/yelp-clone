@@ -28,8 +28,7 @@ feature 'restaurants' do
       fill_in 'Description', with: 'Some good sealfood at this place :)'
       attach_file('restaurant_image', "#{Dir.pwd}/spec/features/test_images/lighthouse.jpg")
       click_button 'Create Restaurant'
-      # expect(page).to have_xpath '//*[@id="lighthouse"]/span[1]/img'
-      # expect(page).to have_xpath("//img[contains(@src,'lighthouse.jpg')]")
+      # expect(page).to have_xpath("//img[contains(@src,'lighthouse.jpg')]") ######Alternatively####### 
       expect(page).to have_css("img[src*='lighthouse.jpg']")
 
 
