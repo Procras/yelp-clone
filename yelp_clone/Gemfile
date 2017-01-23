@@ -31,7 +31,8 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 1'
 gem 'aws-sdk-resources', '~> 2'
 gem 'figaro'
-gem 'rails_12factor'
+
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,4 +1,12 @@
-<span><%= image_tag @restaurant.image.url(:thumb) %></span>
-<p><%= @restaurant.name %></p>
-<p><%= @restaurant.description %></p>
-<p>Average rating: <%= star_rating(@restaurant.average_rating) %></p>
+<!DOCTYPE html>
+<br/>
+<br/>
+<span>
+  <%= image_tag @restaurant.image.url(:thumb) %>
+</span>
+<p>
+  Restaurant: <%= @restaurant.name %>
+</p>
+<p>
+  Description: <%= @restaurant.description %>
+</p>
